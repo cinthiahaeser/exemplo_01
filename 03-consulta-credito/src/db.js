@@ -1,18 +1,17 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  // host: 'localhost',
-  // port: 49153,
-  // database: 'consulta_credito',
-  // username: 'postgres',
-  // password: 'mysecretpassword',
-  storage: "./src/database.sqlite",
+  dialect: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  database: 'consulta_credito',
+  username: 'postgres',
+  password: 'pgtest',
   logging: false,
 });
 
 const clienteModel = (sequelizeCliente, DataTypes) => {
-  const Cliente = sequelizeCliente.define('Clientes', {
+  const Cliente = sequelizeCliente.define('Cliente', {
     CPF: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,7 +29,7 @@ const clienteModel = (sequelizeCliente, DataTypes) => {
 };
 
 const consultaModel = (sequelizeConsulta, DataTypes) => {
-  const Consulta = sequelizeConsulta.define('Consultas', {
+  const Consulta = sequelizeConsulta.define('Consulta', {
     Valor: {
       type: DataTypes.DOUBLE,
       allowNull: false,
@@ -65,5 +64,5 @@ consulta.belongsTo(cliente);
 module.exports = {
   cliente,
   consulta,
-  sequelize,
-};
+  sequelize
+}

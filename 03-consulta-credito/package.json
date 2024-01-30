@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node src/server.js",
     "pretest": "NODE_ENV=test sequelize db:migrate ",
-    "test": "jest",
+    "test": "jest --coverage",
     "posttest": "NODE_ENV=test sequelize db:migrate:undo:all ",
     "lint": "eslint src/** test/** --fix",
     "watch": "jest --watch --verbose=true"
@@ -17,7 +17,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-node": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "jest": "^27.5.1",
     "supertest": "^6.2.2"

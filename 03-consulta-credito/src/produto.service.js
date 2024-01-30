@@ -1,36 +1,36 @@
-const produtoModel = require('./produto.model');
+const produtoModel = require('./produto.model')
 
-async function cadastrarProduto(produto) {
-  const produtoCriado = await produtoModel.create(produto);
-  return produtoCriado;
+async function cadastrarProduto (produto) {
+  const produtoCriado = await produtoModel.create(produto)
+  return produtoCriado
 }
 
-async function consultarProdutos() {
-  const produtos = await produtoModel.findAll();
-  return produtos;
+async function consultarProdutos () {
+  const produtos = await produtoModel.findAll()
+  return produtos
 }
 
-async function atualizarProduto(produto) {
-    const produtoAtualizado = await produtoModel.updateOne(
-        { _id: produto._id },
-        produto,
-    );
+async function atualizarProduto (produto) {
+  const produtoAtualizado = await produtoModel.updateOne(
+    { _id: produto._id },
+    produto
+  )
 
-    return produtoAtualizado;
+  return produtoAtualizado
 }
 
-async function deletarProduto(produto) {
-    const produtoDeletado = await produtoModel.deleteOne(
-        { _id: produto._id },
-        produto,
-    );
+async function deletarProduto (produto) {
+  const produtoDeletado = await produtoModel.deleteOne(
+    { _id: produto._id },
+    produto
+  )
 
-    return produtoDeletado;
+  return produtoDeletado
 }
 
 module.exports = {
-    cadastrarProduto,
-    atualizarProduto,
-    consultarProdutos,
-    deletarProduto,
-};
+  cadastrarProduto,
+  atualizarProduto,
+  consultarProdutos,
+  deletarProduto
+}

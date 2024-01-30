@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-const db = require('db');
+const Sequelize = require('sequelize')
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -8,35 +7,35 @@ const sequelize = new Sequelize({
   // database: 'consulta_credito',
   // username: 'postgres',
   // password: 'mysecretpassword',
-  storage: "./src/database.sqlite",
-  logging: false,
-});
+  storage: './src/database.sqlite',
+  logging: false
+})
 
 const produtoModel = (sequelizeProduto, DataTypes) => {
-    const Produto = sequelizeProduto.define('Produtos', {
-        codigo: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            primaryKey: true,
-            unique: true,
-        },
-        descricao: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        preco: {
-            type: DataTypes.DOUBLE,
-            allowNull: false,
-        },
-    });
-  
-    return Produto;
-};
+  const Produto = sequelizeProduto.define('Produtos', {
+    codigo: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      primaryKey: true,
+      unique: true
+    },
+    descricao: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    preco: {
+      type: DataTypes.DOUBLE,
+      allowNull: false
+    }
+  })
 
-const produto = produtoModel(sequelize, Sequelize.DataTypes);
+  return Produto
+}
+
+const produto = produtoModel(sequelize, Sequelize.DataTypes)
 
 module.exports = {
-    produto,
-    sequelize,
-};
+  produto,
+  sequelize
+}
